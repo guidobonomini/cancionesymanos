@@ -33,7 +33,7 @@ export default {
   methods: {
     callGeniusApi() {
       const options = {
-        apiKey: "eF0K6vGqSt5ZEWv6UUwhaTBweVBnQ2gmV8uEQ5R76FXRmD1xyGcUna0dV_cdkEWS", // genius developer access token
+        apiKey: "MpC59r6ThipnixB4od32g4cksafPV6a-4ure-D3_PzIHGNWbedE1BZcYRgP9LpLD", // genius developer access token
         title: this.cancion,
         artist: this.artista,
         optimizeQuery: true
