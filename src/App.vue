@@ -1,19 +1,26 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link>
-    </div>
     <router-view/>
   </div>
 </template>
 
 <style>
+
+@font-face {
+  font-family: ChaletNewYorkNineteenSixty;
+  src: url(./assets/fonts/ChaletNewYorkNineteenSixty.otf);
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: ChaletNewYorkNineteenSixty, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top:5%;
 }
 
 #nav {

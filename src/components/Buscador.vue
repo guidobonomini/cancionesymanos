@@ -1,10 +1,17 @@
 <template>
-  <div class="hello">
-    <input v-model="cancion" placeholder="Canción" />
-    <input v-model="artista" placeholder="Artista" />
-    <button v-on:click="callGeniusApi()">Buscar</button>
-    <Lyrics :lyrics="letra"/>
-  </div>
+      <div class="flex-container1">
+        <div class="inner-container1">
+          <h1>Canciones</h1>
+          <b-input-group class="mt-3">
+            <b-form-input v-model="cancion" placeholder="Canción"></b-form-input>
+          </b-input-group>
+          <b-input-group class="mt-3">
+            <b-form-input v-model="artista" placeholder="Artista"></b-form-input>
+          </b-input-group>
+          <b-button class="pb-2 mt-3" v-on:click="callGeniusApi()">Buscar</b-button>
+          <Lyrics :lyrics="letra"/>
+        </div>
+      </div>
 </template>
 
 <script>
@@ -17,7 +24,7 @@ export default {
     return {
       cancion: "",
       artista: "",
-      letra: ""
+      letra: []
     };
   },
   components:{
@@ -32,7 +39,8 @@ export default {
         optimizeQuery: true
       };
       getLyrics(options).then(lyrics => {
-        this.letra = lyrics;
+        lyrics = lyrics.split('\n')
+        this.letra = lyrics.filter(n=>n && !n.startsWith('['));
       })
     }
   }
@@ -43,15 +51,9 @@ export default {
 h3 {
   margin: 40px 0 0;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+.flex-container1{
+  display: flex;
+  justify-content: space-between;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+
 </style>
